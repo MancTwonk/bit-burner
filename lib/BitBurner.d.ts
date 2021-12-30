@@ -1,7 +1,7 @@
 declare module "BitBurner" {
-  export type Host = string;
-  export type Script = string;
-  export type StockSymbol =
+  declare export type Host = string;
+  declare export type Script = string;
+  declare export type StockSymbol =
     | "ECP"
     | "MGCP"
     | "BLD"
@@ -35,34 +35,34 @@ declare module "BitBurner" {
     | "CTYS"
     | "MDYN"
     | "TITN";
-  export type OrderType = "limitbuy" | "limitsell" | "stopbuy" | "stopsell";
-  export type OrderPos = "long" | "short";
-  export type University =
+  declare export type OrderType = "limitbuy" | "limitsell" | "stopbuy" | "stopsell";
+  declare export type OrderPos = "long" | "short";
+  declare export type University =
     | "Summit University"
     | "Rothman University"
     | "ZB Institute Of Technology";
-  export type UniversityCourse =
+  declare export type UniversityCourse =
     | "Study Computer Science"
     | "Data Strucures"
     | "Networks"
     | "Algorithms"
     | "Management"
     | "Leadership";
-  export type Gym =
+  declare export type Gym =
     | "Crush Fitness Gym"
     | "Snap Fitness Gym"
     | "Iron Gym"
     | "Powerhouse Gym"
     | "Millenium Fitness Gym";
-  export type GymStat = "str" | "def" | "dex" | "agi";
-  export type City =
+  declare export type GymStat = "str" | "def" | "dex" | "agi";
+  declare export type City =
     | "Aevum"
     | "Chongqing"
     | "Sector-12"
     | "New Tokyo"
     | "Ishima"
     | "Volhaven";
-  export type PurchaseableProgram =
+  declare export type PurchaseableProgram =
     | "brutessh.exe"
     | "ftpcrack.exe"
     | "relaysmtp.exe"
@@ -71,8 +71,8 @@ declare module "BitBurner" {
     | "deepscanv1.exe"
     | "deepscanv2.exe"
     | "autolink.exe";
-  export type CreatableProgram = PurchaseableProgram | "serverprofiler.exe";
-  export type CompanyName =
+  declare export type CreatableProgram = PurchaseableProgram | "serverprofiler.exe";
+  declare export type CompanyName =
     // Sector-12
     | "MegaCorp"
     | "BladeIndustries"
@@ -122,7 +122,7 @@ declare module "BitBurner" {
     | "VitaLife"
     | "GlobalPharmaceuticals"
     | "NoodleBar";
-  export type CompanyField =
+  declare export type CompanyField =
     | "software"
     | "software consultant"
     | "it"
@@ -136,7 +136,7 @@ declare module "BitBurner" {
     | "part-time employee"
     | "waiter"
     | "part-time waiter";
-  export type FactionName =
+  declare export type FactionName =
     | "Illuminati"
     | "Daedalus"
     | "The Covenant"
@@ -170,7 +170,7 @@ declare module "BitBurner" {
     | "CyberSec"
     | "Bladeburners";
 
-  export type GangName =
+  declare export type GangName =
     | "Slum Snakes"
     | "Tetrads"
     | "The Syndicate"
@@ -178,8 +178,8 @@ declare module "BitBurner" {
     | "Speakers for the Dead"
     | "NiteSec"
     | "The Black Hand";
-  export type FactionWork = "hacking" | "field" | "security";
-  export type Crime =
+  declare export type FactionWork = "hacking" | "field" | "security";
+  declare export type Crime =
     | "shoplift"
     | "rob store"
     | "mug"
@@ -192,7 +192,7 @@ declare module "BitBurner" {
     | "kidnap"
     | "assassinate"
     | "heist";
-  export type AugmentName =
+  declare export type AugmentName =
     | "Augmented Targeting I"
     | "Augmented Targeting II"
     | "Augmented Targeting III"
@@ -299,7 +299,7 @@ declare module "BitBurner" {
     | "BLADE-51b Tesla Armor: IPU Upgrade"
     | "The Blade's Simulacrum";
 
-  export interface CrimeStats {
+  declare export interface CrimeStats {
     /** Number representing the difficulty of the crime. Used for success chance calculations */
     difficulty: number;
     /** Amount of karma lost for SUCCESSFULLY committing this crime */
@@ -342,7 +342,7 @@ declare module "BitBurner" {
     intelligence_exp: number;
   }
 
-  export interface AugmentationStats {
+  declare export interface AugmentationStats {
     /** Multipler to hacking skill */
     hacking_mult?: number;
     /** Multipler to strength skill */
@@ -404,24 +404,24 @@ declare module "BitBurner" {
     /** Multipler to success chance in Bladeburner contracts/operations */
     bladeburner_success_chance_mult?: number;
   }
-  export interface BasicHGWOptions {
+  declare export interface BasicHGWOptions {
     /** Number of threads to use for this function. Must be less than or equal to the number of threads the script is running with. */
     threads: number;
   }
 
-  export interface CodingAttemptOptions {
+  declare export interface CodingAttemptOptions {
     /** If truthy, then the function will return a string that states the contract’s reward when it is successfully solved. */
     returnReward: boolean;
   }
 
-  export interface AugmentPair {
+  declare export interface AugmentPair {
     /** augmentation name */
     name: AugmentName;
     /** augmentation cost */
     cost: number;
   }
 
-  export interface StockOrderObject {
+  declare export interface StockOrderObject {
     /** Number of shares */
     shares: number;
     /** Price per share */
@@ -435,12 +435,13 @@ declare module "BitBurner" {
     /** Order position */
     position: "S" | "L";
   }
-  export type StockOrder = {
+  declare export type StockOrder = {
     /** Stock Symbol */
+    // eslint-disable-next-line prettier/prettier
     [key in StockSymbol]?: StockOrderObject[];
   };
 
-  export interface ProcessInfo {
+  declare export interface ProcessInfo {
     /** Script name. */
     filename: Script;
     /** Number of threads script is running with */
@@ -449,7 +450,7 @@ declare module "BitBurner" {
     args: string[];
   }
 
-  export interface HackingMultipliers {
+  declare export interface HackingMultipliers {
     /** Player's hacking chance multiplier. */
     chance: number;
     /** Player's hacking speed multiplier. */
@@ -460,7 +461,7 @@ declare module "BitBurner" {
     growth: number;
   }
 
-  export interface HacknetMultipliers {
+  declare export interface HacknetMultipliers {
     /** Player's hacknet production multiplier */
     production: number;
     /** Player's hacknet purchase cost multiplier */
@@ -473,7 +474,7 @@ declare module "BitBurner" {
     levelCost: number;
   }
 
-  export interface BitNodeMultipliers {
+  declare export interface BitNodeMultipliers {
     /** Influences how quickly the player's agility level (not exp) scales */
     AgilityLevelMultiplier: number;
     /** Influences the base cost to purchase an augmentation. */
@@ -562,7 +563,7 @@ declare module "BitBurner" {
    * This means if you close and re-open the game, or reload the page
    * then you will lose all of the data in the ports!
    */
-  export type Port =
+  declare export type Port =
     | 1
     | 2
     | 3
@@ -583,9 +584,9 @@ declare module "BitBurner" {
     | 18
     | 19
     | 20;
-  export type Handle = string | Port;
+  declare export type Handle = string | Port;
 
-  export interface NodeStats {
+  declare export interface NodeStats {
     /** Node's name ("hacknet-node-5") */
     name: string;
     /** Node's level */
@@ -606,7 +607,7 @@ declare module "BitBurner" {
     totalProduction: number;
   }
 
-  export type HashUpgrades =
+  declare export type HashUpgrades =
     | "Sell for Money"
     | "Sell for Corporation Funds"
     | "Reduce Minimum Security"
@@ -618,7 +619,7 @@ declare module "BitBurner" {
     | "Exchange for Bladeburner SP"
     | "Generate Coding Contract";
 
-  export interface PlayerStats {
+  declare export interface PlayerStats {
     /** Hacking level */
     hacking: number;
     /** Strength level */
@@ -635,7 +636,7 @@ declare module "BitBurner" {
     intelligence: number;
   }
 
-  export interface CharacterMult {
+  declare export interface CharacterMult {
     /** Agility stat */
     agility: number;
     /** Agility exp */
@@ -667,7 +668,7 @@ declare module "BitBurner" {
     /** Money earned from jobs */
     workMoney: number;
   }
-  export interface CharacterInfo {
+  declare export interface CharacterInfo {
     /** Current BitNode number */
     bitnode: number;
     /** Name of city you are currently in */
@@ -706,7 +707,7 @@ declare module "BitBurner" {
     workMoneyGain: number;
   }
 
-  export interface SleeveWorkGains {
+  declare export interface SleeveWorkGains {
     /** hacking exp gained from work */
     workHackExpGain: number;
     /** strength exp gained from work */
@@ -723,19 +724,19 @@ declare module "BitBurner" {
     workMoneyGain: number;
   }
 
-  export interface SourceFileLvl {
+  declare export interface SourceFileLvl {
     /** The number of the source file */
     n: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     /** The level of the source file */
     lvl: number;
   }
 
-  export type BladeburnerContracts =
+  declare export type BladeburnerContracts =
     | "Tracking"
     | "Bounty Hunter"
     | "Retirement";
 
-  export type BladeburnerOperations =
+  declare export type BladeburnerOperations =
     | "Investigation"
     | "Undercover Operation"
     | "Sting Operation"
@@ -743,7 +744,7 @@ declare module "BitBurner" {
     | "Stealth Retirement Operation"
     | "Assassination";
 
-  export type BladeburnerBlackOps =
+  declare export type BladeburnerBlackOps =
     | "Operation Typhoon"
     | "Operation Zero"
     | "Operation X"
@@ -766,14 +767,14 @@ declare module "BitBurner" {
     | "Operation Vindictus"
     | "Operation Daedalus";
 
-  export type BladeburnerGenActions =
+  declare export type BladeburnerGenActions =
     | "Training"
     | "Field Analysis"
     | "Recruitment"
     | "Diplomacy"
     | "Hyperbolic Regeneration Chamber";
 
-  export type BladeburnerSkills =
+  declare export type BladeburnerSkills =
     | "Blade's Intuition"
     | "Cloak"
     | "Marksman"
@@ -789,13 +790,13 @@ declare module "BitBurner" {
     | "Hands of Midas"
     | "Hyperdrive";
 
-  export type BladeburnerActTypes =
+  declare export type BladeburnerActTypes =
     | "contracts"
     | "operations"
     | "black ops"
     | "general";
 
-  export interface BladeburnerCurAction {
+  declare export interface BladeburnerCurAction {
     /** Type of Action */
     type: BladeburnerActTypes | "Idle";
     /** Name of Action */
@@ -806,7 +807,7 @@ declare module "BitBurner" {
       | BladeburnerBlackOps;
   }
 
-  export type CodingContractTypes =
+  declare export type CodingContractTypes =
     | "Find Largest Prime Factor"
     | "Subarray with Maximum Sum"
     | "Total Ways to Sum"
@@ -824,7 +825,7 @@ declare module "BitBurner" {
     | "Sanitize Parentheses in Expression"
     | "Find All Valid Math Expressions";
 
-  export interface GangGenInfo {
+  declare export interface GangGenInfo {
     /** Name of faction that the gang belongs to ("Slum Snakes", etc.) */
     faction: GangName;
     /** Boolean indicating whether or not its a hacking gang */
@@ -847,18 +848,18 @@ declare module "BitBurner" {
     wantedLevelGainRate: number;
   }
 
-  export interface GangOtherInfoObject {
+  declare export interface GangOtherInfoObject {
     /** Gang power */
     power: number;
     /** Gang territory, in decimal form */
     territory: number;
   }
-  export type GangOtherInfo = {
+  declare export type GangOtherInfo = {
     /** Stock Symbol */
     [key in GangName]: GangOtherInfoObject[];
   };
 
-  export type GangEquipment =
+  declare export type GangEquipment =
     | "Baseball Bat"
     | "Katana"
     | "Glock 18C"
@@ -881,14 +882,14 @@ declare module "BitBurner" {
     | "Hmap Node"
     | "Jack the Ripper";
 
-  export type GangEquipmentType =
+  declare export type GangEquipmentType =
     | "Weapon"
     | "Armor"
     | "Vehicle"
     | "Rootkit"
     | "Augmentation";
 
-  export type GangAugmentations =
+  declare export type GangAugmentations =
     | "Bionic Arms"
     | "Bionic Legs"
     | "Bionic Spine"
@@ -901,7 +902,7 @@ declare module "BitBurner" {
     | "DataJack"
     | "Graphene Bone Lacings";
 
-  export type GangTasks =
+  declare export type GangTasks =
     | "Unassigned"
     | "Ransomware"
     | "Phishing"
@@ -927,7 +928,7 @@ declare module "BitBurner" {
     | "Train Charisma"
     | "Territory Warfare";
 
-  export interface GangTasksStats {
+  declare export interface GangTasksStats {
     /** Task name */
     name: GangTasks;
     /** Task Description */
@@ -960,7 +961,7 @@ declare module "BitBurner" {
     territory: GangTasksTerritory;
   }
 
-  export interface GangEquipmentStats {
+  declare export interface GangEquipmentStats {
     /** Strength multiplier */
     str: number;
     /** Defense multiplier */
@@ -975,7 +976,7 @@ declare module "BitBurner" {
     hack: number;
   }
 
-  export interface GangTasksTerritory {
+  declare export interface GangTasksTerritory {
     /** Money gain impact on task scaling */
     money: number;
     /** Respect gain impact on task scaling */
@@ -984,7 +985,7 @@ declare module "BitBurner" {
     wanted: number;
   }
 
-  export interface GangMemberInfo {
+  declare export interface GangMemberInfo {
     /** Agility stat */
     agility: number;
     /** Agility multiplier from equipment. Decimal form */
@@ -1029,7 +1030,7 @@ declare module "BitBurner" {
     task: GangTasks;
   }
 
-  export interface GangMemberAscension {
+  declare export interface GangMemberAscension {
     /** Amount of respect lost from ascending */
     respect: number;
     /** Hacking multiplier gained from ascending. Decimal form */
@@ -1046,7 +1047,7 @@ declare module "BitBurner" {
     cha: number;
   }
 
-  export interface SleeveStats {
+  declare export interface SleeveStats {
     /** current shock of the sleeve [0-100] */
     shock:
       | 0
@@ -1267,7 +1268,7 @@ declare module "BitBurner" {
     charisma: number;
   }
 
-  export interface SleeveInformation {
+  declare export interface SleeveInformation {
     /** location of the sleeve */
     city: City;
     /** current hp of the sleeve */
@@ -1294,7 +1295,7 @@ declare module "BitBurner" {
     workRepGain: number;
   }
 
-  export interface SleeveTask {
+  declare export interface SleeveTask {
     /** task type */
     task: string;
     /** crime currently attempting, if any */
@@ -1307,7 +1308,7 @@ declare module "BitBurner" {
     factionWorkType: FactionWork | "";
   }
 
-  export interface TIX {
+  declare export interface TIX {
     /**
      * Returns an array of the symbols of the tradable stocks
      *
@@ -1402,7 +1403,7 @@ declare module "BitBurner" {
      */
     getStockPurchaseCost(
       sym: StockSymbol,
-      shares: Number,
+      shares: number,
       posType: OrderPos
     ): number;
 
@@ -1418,7 +1419,7 @@ declare module "BitBurner" {
      */
     getStockSaleGain(
       sym: StockSymbol,
-      shares: Number,
+      shares: number,
       posType: OrderPos
     ): number;
 
@@ -1665,7 +1666,7 @@ declare module "BitBurner" {
     purchase4SMarketDataTixApi(): boolean;
   }
 
-  export interface Singularity {
+  declare export interface Singularity {
     /**
      * If you are not in BitNode-4, then you must have Level 1 of Source-File 4 in order to use this function and the RAM cost is doubled.
      *
@@ -2231,7 +2232,7 @@ declare module "BitBurner" {
     softReset(): void;
   }
 
-  export interface HackNet {
+  declare export interface HackNet {
     /**
      * Returns the number of Hacknet Nodes you own.
      *
@@ -2443,7 +2444,7 @@ declare module "BitBurner" {
     spendHashes(upgName: HashUpgrades, upgTarget?: Host): boolean;
   }
 
-  export interface BladeBurner {
+  declare export interface BladeBurner {
     /**
      * You have to be employed in the Bladeburner division and be in BitNode-7
      * or have Source-File 7 in order to use this function.
@@ -2995,7 +2996,7 @@ declare module "BitBurner" {
     getBonusTime(): number;
   }
 
-  export interface CodingContract {
+  declare export interface CodingContract {
     /**
      * Attempts to solve the Coding Contract with the provided solution.
      *
@@ -3072,7 +3073,7 @@ declare module "BitBurner" {
     getNumTriesRemaining(fn: string, host?: Host): number;
   }
 
-  export interface Gang {
+  declare export interface Gang {
     /**
      * If you are not in BitNode-2, then you must have Source-File 2 in order to use this function.
      *
@@ -3284,7 +3285,7 @@ declare module "BitBurner" {
     getBonusTime(): number;
   }
 
-  export interface Sleeve {
+  declare export interface Sleeve {
     /**
      * If you are not in BitNode-10, then you must have Source-File 10 in order to use this function.
      *
@@ -3470,7 +3471,7 @@ declare module "BitBurner" {
     purchaseSleeveAug(sleeveNumber: number, augName: AugmentName): boolean;
   }
 
-  export interface BitBurner extends TIX, Singularity {
+  declare export interface BitBurner extends TIX, Singularity {
     /**
      * Not all functions in the Hacknet Node API are immediately available.
      *
@@ -4089,7 +4090,7 @@ declare module "BitBurner" {
      * @example
      * ```js
      * //(using NetscriptJS (Netscript 2.0))
-     * export async function main(ns) {
+     * declare export async function main(ns) {
      *    const ps = ns.ps("home");
      *    for (let i = 0; i < ps.length; ++i) {
      *        ns.tprint(ps[i].filename + ' ' + ps[i].threads);
