@@ -1,7 +1,13 @@
 # Getting Started
 
-To pull the script onto a server, run:
+To download the bootstrap script, run:
 
 ```bash
-wget https://github.com/MancTwonk/bitburner/releases/download/latest/build.js build.js
+wget https://github.com/MancTwonk/bit-burner/releases/download/latest/bootstrap.js bootstrap.js
+```
+
+Then to deploy available scripts, simply run the bootstrap:
+
+```bash
+run bootstrap.js
 ```
